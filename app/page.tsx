@@ -11,146 +11,168 @@ export default function Home() {
   const { hasUploadAccess, userRole } = useAuthRole();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+    <div className="min-h-screen">
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center mb-16">
+          <div className="mb-8">
+            <img src="/icon.png" alt="DocuMind AI" className="h-20 w-20 mx-auto mb-6" />
+          </div>
+          <h1 className="text-5xl font-bold gradient-text mb-6">
             Welcome to DocuMind AI
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Your intelligent document assistant. Chat with your PDFs, get instant answers, and unlock insights from your knowledge base.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Your intelligent document assistant for study and research. Upload PDFs, chat with your documents, 
+            and unlock insights from your knowledge base with the power of artificial intelligence.
           </p>
         </div>
 
         <Show when="signed-out">
-          <div className="text-center">
-            <Card className="max-w-md mx-auto">
+          <div className="text-center max-w-2xl mx-auto">
+            <Card className="card-academic">
               <CardHeader>
-                <CardTitle>Get Started</CardTitle>
+                <CardTitle className="text-2xl gradient-text">Ready to Get Started?</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Sign in to access the AI chatbot and upload your documents.
+              <CardContent className="space-y-6">
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Join thousands of students, researchers, and professionals who use DocuMind AI to unlock insights from their documents.
                 </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                  <div className="flex flex-col items-center p-4 bg-primary/5 rounded-lg">
+                    <MessageCircle className="h-8 w-8 text-primary mb-2" />
+                    <span className="font-medium">AI Chat</span>
+                    <span className="text-muted-foreground">Instant answers</span>
+                  </div>
+                  <div className="flex flex-col items-center p-4 bg-accent/10 rounded-lg">
+                    <Upload className="h-8 w-8 text-accent-foreground mb-2" />
+                    <span className="font-medium">Document Upload</span>
+                    <span className="text-muted-foreground">Premium feature</span>
+                  </div>
+                  <div className="flex flex-col items-center p-4 bg-purple-500/10 rounded-lg">
+                    <BookOpen className="h-8 w-8 text-purple-600 mb-2" />
+                    <span className="font-medium">Smart Insights</span>
+                    <span className="text-muted-foreground">AI-powered analysis</span>
+                  </div>
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  Free account includes AI chat • Premium features available
+                </div>
               </CardContent>
             </Card>
           </div>
         </Show>
 
         <Show when="signed-in">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* Chat Feature */}
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="card-academic">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MessageCircle className="h-5 w-5 text-blue-600" />
-                  AI Chat
+                <CardTitle className="flex items-center gap-3">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <MessageCircle className="h-6 w-6 text-primary" />
+                  </div>
+                  AI Chat Assistant
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Chat with AI and get answers from your uploaded documents.
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Engage in intelligent conversations with AI and get instant answers from your uploaded documents and knowledge base.
                 </p>
                 <Link href="/chat">
-                  <Button className="w-full">Start Chatting</Button>
+                  <Button className="w-full btn-academic">Start Chatting</Button>
                 </Link>
               </CardContent>
             </Card>
 
-            {/* Upload Feature - Conditional */}
-            {hasUploadAccess ? (
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Upload className="h-5 w-5 text-green-600" />
-                    Upload PDFs
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    Upload PDF documents to build your knowledge base.
-                  </p>
-                  <Link href="/upload">
-                    <Button className="w-full" variant="outline">
-                      Upload Documents
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ) : (
-              <Card className="hover:shadow-lg transition-shadow border-orange-200">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-orange-500" />
-                    Premium Feature
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    PDF upload is available for Premium Users and Administrators.
-                  </p>
-                  <Button disabled className="w-full" variant="outline">
-                    Upgrade Required
-                  </Button>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* About */}
-            <Card className="hover:shadow-lg transition-shadow">
+            {/* Profile Feature */}
+            <Card className="card-academic">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-purple-600" />
-                  Your Role
+                <CardTitle className="flex items-center gap-3">
+                  <div className="p-2 bg-accent/20 rounded-lg">
+                    <BookOpen className="h-6 w-6 text-accent-foreground" />
+                  </div>
+                  Your Profile
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-2">
-                  Current role: <strong className="capitalize">{userRole}</strong>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Manage your account information, update your profile, and view your access permissions and role status.
                 </p>
-                <div className="text-sm text-gray-500">
-                  {userRole === "admin" && "Full access to all features"}
-                  {userRole === "premium-user" && "Access to chat and upload features"}
-                  {(userRole === "user" || !userRole) && "Access to chat feature only"}
+                <Link href="/profile">
+                  <Button className="w-full" variant="outline">
+                    View Profile
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Upload Status */}
+            <Card className={`card-academic ${hasUploadAccess ? 'success-glow border-accent/30' : 'border-orange-200/50'}`}>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-3">
+                  <div className={`p-2 rounded-lg ${hasUploadAccess ? 'bg-accent/20' : 'bg-orange-100'}`}>
+                    {hasUploadAccess ? (
+                      <Upload className="h-6 w-6 text-accent-foreground" />
+                    ) : (
+                      <Shield className="h-6 w-6 text-orange-600" />
+                    )}
+                  </div>
+                  Document Upload
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {hasUploadAccess 
+                    ? "You have access to upload PDF documents directly in the chat interface for AI analysis."
+                    : "Document upload is a premium feature available for Premium Users and Administrators."
+                  }
+                </p>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground">Current role:</span>
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                    userRole === 'admin' ? 'badge-admin' : 
+                    userRole === 'premium-user' ? 'badge-premium' : 'badge-user'
+                  }`}>
+                    {userRole.replace('-', ' ').toUpperCase()}
+                  </span>
                 </div>
               </CardContent>
             </Card>
           </div>
 
           {/* Features Overview */}
-          <div className="mt-12 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">
-              How It Works
+          <div className="mt-20 max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center gradient-text mb-12">
+              How DocuMind AI Works
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-12">
               <div className="text-center">
-                <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <Upload className="h-8 w-8 text-blue-600" />
+                <div className="bg-gradient-to-br from-primary/10 to-primary/20 rounded-2xl p-6 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-lg">
+                  <Upload className="h-10 w-10 text-primary" />
                 </div>
-                <h3 className="font-semibold mb-2">1. Upload Documents</h3>
-                <p className="text-gray-600 text-sm">
+                <h3 className="font-bold text-lg mb-4">1. Upload Documents</h3>
+                <p className="text-muted-foreground leading-relaxed">
                   {hasUploadAccess 
-                    ? "Upload your PDF documents to create your knowledge base"
-                    : "Premium feature - upgrade to upload documents"
+                    ? "Use the upload button in the chat interface to add PDF documents for AI analysis and processing"
+                    : "Premium feature - upgrade your account to upload and analyze documents with AI"
                   }
                 </p>
               </div>
               <div className="text-center">
-                <div className="bg-green-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <MessageCircle className="h-8 w-8 text-green-600" />
+                <div className="bg-gradient-to-br from-accent/20 to-accent/30 rounded-2xl p-6 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-lg">
+                  <MessageCircle className="h-10 w-10 text-accent-foreground" />
                 </div>
-                <h3 className="font-semibold mb-2">2. Ask Questions</h3>
-                <p className="text-gray-600 text-sm">
-                  Chat with AI and ask questions about your documents
+                <h3 className="font-bold text-lg mb-4">2. Ask Questions</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Engage in natural conversations with AI and ask specific questions about your uploaded documents and research materials
                 </p>
               </div>
               <div className="text-center">
-                <div className="bg-purple-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <BookOpen className="h-8 w-8 text-purple-600" />
+                <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/20 rounded-2xl p-6 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-lg">
+                  <BookOpen className="h-10 w-10 text-purple-600" />
                 </div>
-                <h3 className="font-semibold mb-2">3. Get Insights</h3>
-                <p className="text-gray-600 text-sm">
-                  Receive intelligent answers and insights from your content
+                <h3 className="font-bold text-lg mb-4">3. Get Insights</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Receive intelligent, contextual answers and unlock valuable insights from your content with advanced AI understanding
                 </p>
               </div>
             </div>
