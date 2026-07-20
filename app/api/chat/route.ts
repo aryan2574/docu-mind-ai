@@ -1,10 +1,12 @@
 import { streamText, UIMessage, convertToModelMessages } from "ai";
 import { openai } from "@ai-sdk/openai";
+import { auth } from "@clerk/nextjs/server";
 
 export async function POST(req: Request) {
   try {
-    const { messages }: { messages: UIMessage[] } = await req.json();
+    await auth.protect();
 
+    const { messages }: { messages: UIMessage[] } = await req.json();
     const result = streamText({
       model: openai("gpt-4o-mini"),
       messages: await convertToModelMessages(messages),
