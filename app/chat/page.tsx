@@ -3,6 +3,8 @@
 
 import { Fragment, useState } from "react";
 import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport, isToolUIPart } from "ai";
+import type { ChatMessage } from "@/app/api/chat/route";
 import {
   Conversation,
   ConversationContent,
@@ -22,11 +24,22 @@ import {
   PromptInputTextarea,
   PromptInputTools,
 } from "@/components/ai-elements/prompt-input";
+import {
+  Tool,
+  ToolContent,
+  ToolHeader,
+  ToolInput,
+  ToolOutput,
+} from "@/components/ai-elements/tool";
 import { Spinner } from "@/components/ui/spinner";
 
 export default function RAGChatBot() {
   const [input, setInput] = useState("");
-  const { messages, sendMessage, status } = useChat();
+  const { messages, sendMessage, status } = useChat<ChatMessage>({
+    transport: new DefaultChatTransport({
+      api: "/api/chat",
+    }),
+  });
 
   const handleSubmit = (message: PromptInputMessage) => {
     if (!message.text) {
@@ -58,6 +71,27 @@ export default function RAGChatBot() {
                         </Fragment>
                       );
                     default:
+                      if (isToolUIPart(part)) {
+                        return (
+                          <Message from={message.role} key={`${message.id}-${i}`}>
+                            <MessageContent>
+                              <Tool open={false}>
+                                <ToolHeader
+                                  type="dynamic-tool"
+                                  state={part.state}
+                                  title="🔍 Searching documents..."
+                                  toolName="searchKnowledgeBase"
+                                />
+                                <ToolContent>
+                                  <div className="text-sm text-muted-foreground">
+                                    Query: "{(part.input as any)?.query || 'searching...'}"
+                                  </div>
+                                </ToolContent>
+                              </Tool>
+                            </MessageContent>
+                          </Message>
+                        );
+                      }
                       return null;
                   }
                 })}
