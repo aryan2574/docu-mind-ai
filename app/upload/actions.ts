@@ -2,12 +2,24 @@
 "use server";
 
 import { PDFParse } from "pdf-parse";
+import { auth } from "@clerk/nextjs/server";
 import { db } from "@/lib/db-config";
 import { documents } from "@/lib/db-schema";
 import { generateEmbeddings } from "@/lib/embeddings";
 import { chunkContent } from "@/lib/chunking";
+import type { Roles } from "@/types/globals";
 
 export async function processPdfFile(formData: FormData) {
+  // Verify user has permission
+  const { sessionClaims } = await auth.protect();
+  const userRole = sessionClaims?.metadata?.role as Roles;
+  
+  if (!userRole || !["admin", "premium-user"].includes(userRole)) {
+    return {
+      success: false,
+      error: "Access denied. This feature is only available for Premium Users and Administrators.",
+    };
+  }
   try {
     const file = formData.get("pdf") as File;
 

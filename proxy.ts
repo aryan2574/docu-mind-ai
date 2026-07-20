@@ -1,6 +1,6 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-// Clerk still needs proxy middleware, but auth checks live on each protected resource.
+// Clerk middleware - auth checks live on each protected resource
 export default clerkMiddleware();
 
 export const config = {
