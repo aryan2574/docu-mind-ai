@@ -49,72 +49,107 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  /* Education-focused color palette */
+  --background: oklch(0.99 0.005 250); /* Very light blue-tinted white */
+  --foreground: oklch(0.12 0.02 250); /* Deep navy for text */
+  --card: oklch(1 0 0); /* Pure white cards for contrast */
+  --card-foreground: oklch(0.12 0.02 250);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --popover-foreground: oklch(0.12 0.02 250);
+  
+  /* Primary: Intelligent blue-purple gradient */
+  --primary: oklch(0.55 0.15 270); /* Vibrant purple-blue */
+  --primary-foreground: oklch(0.98 0.005 250);
+  
+  /* Secondary: Soft lavender for accents */
+  --secondary: oklch(0.95 0.02 280); /* Light lavender */
+  --secondary-foreground: oklch(0.35 0.08 270);
+  
+  /* Muted: Soft gray with blue undertones */
+  --muted: oklch(0.96 0.01 250); /* Very light blue-gray */
+  --muted-foreground: oklch(0.45 0.02 250); /* Medium blue-gray */
+  
+  /* Accent: Academic green for success states */
+  --accent: oklch(0.92 0.03 150); /* Light academic green */
+  --accent-foreground: oklch(0.25 0.08 150);
+  
+  /* Destructive: Warm red for errors */
+  --destructive: oklch(0.65 0.20 25); /* Academic red */
+  
+  /* Borders and inputs: Subtle blue-gray */
+  --border: oklch(0.90 0.01 250);
+  --input: oklch(0.94 0.01 250);
+  --ring: oklch(0.55 0.15 270); /* Match primary */
+  
+  /* Charts: Educational color progression */
+  --chart-1: oklch(0.70 0.12 270); /* Purple-blue */
+  --chart-2: oklch(0.65 0.15 200); /* Sky blue */
+  --chart-3: oklch(0.60 0.12 150); /* Teal */
+  --chart-4: oklch(0.55 0.10 100); /* Green */
+  --chart-5: oklch(0.50 0.08 60); /* Yellow-green */
+  
+  --radius: 0.75rem; /* Slightly more rounded for friendlier feel */
+  
+  /* Sidebar: Clean academic look */
+  --sidebar: oklch(0.97 0.01 250);
+  --sidebar-foreground: oklch(0.12 0.02 250);
+  --sidebar-primary: oklch(0.55 0.15 270);
+  --sidebar-primary-foreground: oklch(0.98 0.005 250);
+  --sidebar-accent: oklch(0.92 0.02 270);
+  --sidebar-accent-foreground: oklch(0.35 0.08 270);
+  --sidebar-border: oklch(0.88 0.01 250);
+  --sidebar-ring: oklch(0.55 0.15 270);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Dark mode: Academic night theme */
+  --background: oklch(0.08 0.01 250); /* Deep blue-black */
+  --foreground: oklch(0.92 0.01 250); /* Light blue-white */
+  --card: oklch(0.12 0.01 250); /* Dark blue cards */
+  --card-foreground: oklch(0.92 0.01 250);
+  --popover: oklch(0.12 0.01 250);
+  --popover-foreground: oklch(0.92 0.01 250);
+  
+  /* Primary: Bright academic purple */
+  --primary: oklch(0.70 0.18 270); /* Brighter purple in dark mode */
+  --primary-foreground: oklch(0.08 0.01 250);
+  
+  /* Secondary: Muted purple for dark mode */
+  --secondary: oklch(0.20 0.03 270); /* Dark purple */
+  --secondary-foreground: oklch(0.85 0.05 270);
+  
+  /* Muted: Dark blue-gray */
+  --muted: oklch(0.16 0.01 250);
+  --muted-foreground: oklch(0.65 0.02 250);
+  
+  /* Accent: Bright academic green */
+  --accent: oklch(0.25 0.05 150); /* Dark green */
+  --accent-foreground: oklch(0.85 0.08 150);
+  
+  /* Destructive: Soft red for dark mode */
+  --destructive: oklch(0.70 0.18 25);
+  
+  /* Borders and inputs: Subtle in dark mode */
+  --border: oklch(0.20 0.01 250);
+  --input: oklch(0.18 0.01 250);
+  --ring: oklch(0.70 0.18 270);
+  
+  /* Charts: Brighter for dark mode visibility */
+  --chart-1: oklch(0.75 0.15 270);
+  --chart-2: oklch(0.70 0.18 200);
+  --chart-3: oklch(0.65 0.15 150);
+  --chart-4: oklch(0.60 0.12 100);
+  --chart-5: oklch(0.55 0.10 60);
+  
+  /* Sidebar: Dark academic */
+  --sidebar: oklch(0.10 0.01 250);
+  --sidebar-foreground: oklch(0.92 0.01 250);
+  --sidebar-primary: oklch(0.70 0.18 270);
+  --sidebar-primary-foreground: oklch(0.08 0.01 250);
+  --sidebar-accent: oklch(0.18 0.02 270);
+  --sidebar-accent-foreground: oklch(0.85 0.05 270);
+  --sidebar-border: oklch(0.20 0.01 250);
+  --sidebar-ring: oklch(0.70 0.18 270);
 }
 
 @layer base {
@@ -123,8 +158,106 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Subtle gradient background for depth */
+    background-image: radial-gradient(circle at 20% 80%, oklch(0.98 0.01 280) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, oklch(0.98 0.01 200) 0%, transparent 50%);
   }
   html {
     @apply font-sans;
+  }
+}
+
+@layer components {
+  /* Educational UI enhancements */
+  .card-academic {
+    @apply bg-card/80 backdrop-blur-sm border-2 border-border/50 shadow-lg;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-academic:hover {
+    @apply shadow-xl border-primary/20 transform scale-[1.02];
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, oklch(0.55 0.15 270), oklch(0.60 0.12 200));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .btn-academic {
+    @apply bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70;
+    @apply shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply border border-primary/20 backdrop-blur-sm;
+  }
+  
+  .nav-glass {
+    @apply bg-background/80 backdrop-blur-md border-b border-border/50;
+    box-shadow: 0 4px 6px -1px oklch(0.55 0.15 270 / 0.05), 0 2px 4px -1px oklch(0.55 0.15 270 / 0.03);
+  }
+  
+  .input-academic {
+    @apply bg-input/50 backdrop-blur-sm border-2 border-border/50;
+    @apply focus:border-primary/50 focus:ring-2 focus:ring-primary/20;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Success states for educational progress */
+  .success-glow {
+    @apply shadow-lg shadow-accent/20;
+  }
+  
+  /* Role badge styles */
+  .badge-admin {
+    @apply bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg;
+  }
+  
+  .badge-premium {
+    @apply bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg;
+  }
+  
+  .badge-user {
+    @apply bg-gradient-to-r from-gray-400 to-gray-500 text-white shadow-lg;
+  }
+  
+  /* Navigation enhancements */
+  .nav-dropdown {
+    @apply absolute right-0 top-full mt-2 w-64 bg-card/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl p-2;
+    animation: slideIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* Footer gradient animation */
+  .footer-gradient {
+    background: linear-gradient(-45deg, oklch(0.55 0.15 270 / 0.05), oklch(0.60 0.12 200 / 0.05), oklch(0.50 0.10 150 / 0.05), oklch(0.45 0.08 120 / 0.05));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* Scroll reveal animation */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
